@@ -67,12 +67,11 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", hint: "Write a bulleted schedule list, a short paragraph, or both." }
 
   - name: "seasonal_features"
-    label: "Homepage Feature Banner"
+    label: "Homepage Feature Banners"
     folder: "src/seasonal-features"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Active", name: "active", widget: "boolean", default: false, hint: "Only ONE should be active at a time — that's the one shown near the top of the homepage. Turn this on here and turn it off on the old one. Use this for any timely promotion (VBS, a Christmas service, a fundraiser, etc.) — it isn't limited to any one ministry." }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Badge label", name: "badge", widget: "string" }
       - { label: "Photo", name: "image", widget: "image", required: false }
@@ -81,3 +80,19 @@ collections:
       - { label: "Button label", name: "cta_label", widget: "string", required: false }
       - { label: "Button link", name: "cta_url", widget: "string", required: false }
       - { label: "Tags", name: "tags", widget: "hidden", default: ["seasonal-feature"] }
+
+  - name: "current_seasonal_feature"
+    label: "Current Homepage Feature"
+    files:
+      - file: "src/_data/currentSeasonalFeature.json"
+        label: "Current Feature"
+        name: "current_seasonal_feature"
+        fields:
+          - label: "Which banner is showing"
+            name: "active"
+            widget: "relation"
+            collection: "seasonal_features"
+            search_fields: ["title"]
+            display_fields: ["title"]
+            value_field: "{{slug}}"
+            hint: "Pick which banner from Homepage Feature Banners shows near the top of the homepage right now."

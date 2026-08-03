@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 
@@ -28,8 +30,15 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("seasonalFeature", function (collectionApi) {
+    let activeSlug;
+    try {
+      const pointerPath = path.join(__dirname, "src/_data/currentSeasonalFeature.json");
+      activeSlug = JSON.parse(fs.readFileSync(pointerPath, "utf8")).active;
+    } catch (err) {
+      return [];
+    }
     return collectionApi.getFilteredByTag("seasonal-feature").filter(function (item) {
-      return item.data.active;
+      return item.fileSlug === activeSlug;
     });
   });
 
