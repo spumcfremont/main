@@ -26,6 +26,26 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
   </div>
 </section>
 
+<!-- ========== SEASONAL FEATURE ========== -->
+{%- set feature = collections.seasonalFeature[0] %}
+{%- if feature %}
+<section class="reveal">
+  <div class="wrap">
+    <div class="feature" style="margin-bottom:0">
+      <img src="{{ feature.data.image }}" alt="{{ feature.data.image_alt }}">
+      <div>
+        <span class="badge">{{ feature.data.badge }}</span>
+        <h3 style="font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--plum);margin-bottom:.7rem">{{ feature.data.title }}</h3>
+        {{ feature.templateContent | safe }}
+        {%- if feature.data.cta_label and feature.data.cta_url %}
+        <p style="margin-top:1.2rem"><a class="btn btn-out" href="{{ feature.data.cta_url }}" target="_blank" rel="noopener">{{ feature.data.cta_label }}</a></p>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
 <!-- ========== SIGNATURE: THE FOUR I'S PATH ========== -->
 <div class="pathwrap">
   <div class="wrap path">
@@ -278,21 +298,6 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
       <p class="eyebrow" style="color:var(--blue)">Inclusion · Every age belongs</p>
       <h2 style="color:var(--plum)">Kingdom Kidz &amp; SP Youth</h2>
     </div>
-
-    {%- set feature = collections.seasonalFeature[0] %}
-    {%- if feature %}
-    <div class="feature" style="margin-bottom:2.6rem">
-      <img src="{{ feature.data.image }}" alt="{{ feature.data.image_alt }}">
-      <div>
-        <span class="badge">{{ feature.data.badge }}</span>
-        <h3 style="font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--green);margin-bottom:.7rem">{{ feature.data.title }}</h3>
-        {{ feature.templateContent | safe }}
-        {%- if feature.data.cta_label and feature.data.cta_url %}
-        <p style="margin-top:1.2rem"><a class="btn btn-out" href="{{ feature.data.cta_url }}" target="_blank" rel="noopener">{{ feature.data.cta_label }}</a></p>
-        {%- endif %}
-      </div>
-    </div>
-    {%- endif %}
 
     <div class="grid g2c">
       <article class="card acc-b">

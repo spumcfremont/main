@@ -67,12 +67,12 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", hint: "Write a bulleted schedule list, a short paragraph, or both." }
 
   - name: "seasonal_features"
-    label: "Seasonal Features (Kids & Youth banner)"
+    label: "Homepage Feature Banner"
     folder: "src/seasonal-features"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Active", name: "active", widget: "boolean", default: false, hint: "Only ONE should be active at a time — that's the one shown on the homepage. Turn this on here and turn it off on the old one." }
+      - { label: "Active", name: "active", widget: "boolean", default: false, hint: "Only ONE should be active at a time — that's the one shown near the top of the homepage. Turn this on here and turn it off on the old one. Use this for any timely promotion (VBS, a Christmas service, a fundraiser, etc.) — it isn't limited to any one ministry." }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Badge label", name: "badge", widget: "string" }
       - { label: "Photo", name: "image", widget: "image", required: false }
