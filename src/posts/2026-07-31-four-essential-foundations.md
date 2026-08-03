@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: Four Essential Foundations
+title: "New Sermon Series: Acts 2:42-47"
 author: Pastor Rajiv
 date: 2026-07-31T10:00:00.000-07:00
 excerpt: >-
@@ -8,12 +8,13 @@ excerpt: >-
 
 
   Pastor Rajiv Pathik introduces a new sermon series on Acts 2:42–47, exploring four foundations of the early church—Prayer, Teaching, Fellowship, and Mission—starting this week with Prayer. Also featured: updates from the Worship Team and Digital Ministry Team on a refreshed church website (with a call for congregation photos), plus a prayer for peace amid tensions involving Iran, the U.S., and Israel.
+image: /images/uploads/763122726_1705820814021509_5314921186505928556_n.jpeg
 tags:
   - post
 ---
 Dear St. Paul Church Family,
 
-“They devoted themselves to the apostles’ teaching and fellowship, to the breaking of bread and the prayers… And day by day the Lord added to their number those who were being saved.” — Acts 2:42, 47
+“They devoted themselves to the apostles’ teaching and fellowship, to the breaking of bread and the prayers… And day by day the Lord added to their number those who were being saved.” — Acts 2:42-47
 
 Grace and peace to you in the name of our Lord Jesus Christ!
 
