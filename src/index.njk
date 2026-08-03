@@ -30,6 +30,10 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
 {%- if collections.seasonalFeature.length %}
 <section class="reveal">
   <div class="wrap">
+    <div class="sechead">
+      <p class="eyebrow" style="color:var(--crimson)">Featured</p>
+      <h2 style="color:var(--plum)">This Season at Saint Paul</h2>
+    </div>
     {%- for feature in collections.seasonalFeature %}
     <div class="feature"{% if not loop.last %} style="margin-bottom:2.6rem"{% endif %}>
       <img src="{{ feature.data.image }}" alt="{{ feature.data.image_alt }}">
