@@ -1,0 +1,14 @@
+{
+  "name": "belongatstpaul-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "St. Paul United Methodist Church, Fremont, CA — belongatstpaul.org",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.2"
+  }
+}

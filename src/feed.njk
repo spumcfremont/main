@@ -1,0 +1,28 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Pastor's Corner — St. Paul United Methodist Church</title>
+  <subtitle>Pastor Rajiv's weekly reflections and updates for the St. Paul UMC Fremont church family.</subtitle>
+  <link href="https://belongatstpaul.org/feed.xml" rel="self" />
+  <link href="https://belongatstpaul.org/pastors-corner/" />
+  <updated>{{ collections.post | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://belongatstpaul.org/pastors-corner/</id>
+  <author>
+    <name>St. Paul United Methodist Church</name>
+  </author>
+  {%- for post in collections.post %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ post.url | absoluteUrl('https://belongatstpaul.org') }}" />
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ post.url | absoluteUrl('https://belongatstpaul.org') }}</id>
+    <content type="html"><![CDATA[{{ post.templateContent | htmlToAbsoluteUrls('https://belongatstpaul.org') | safe }}]]></content>
+    <author>
+      <name>{{ post.data.author }}</name>
+    </author>
+  </entry>
+  {%- endfor %}
+</feed>

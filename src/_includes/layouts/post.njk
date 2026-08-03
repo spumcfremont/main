@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+---
+<section class="reveal in">
+  <div class="wrap" style="max-width:72ch">
+    <div class="sechead">
+      <p class="eyebrow" style="color:var(--flame)">Pastor's Corner</p>
+      <h2 style="color:var(--plum)">{{ title }}</h2>
+      <p class="contact" style="margin-top:.6rem">
+        {{ author }} · <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      </p>
+    </div>
+    {% if image %}
+    <img src="{{ image }}" alt="" style="border-radius:16px;box-shadow:var(--shadow);margin-bottom:2rem">
+    {% endif %}
+    <div class="lede" style="color:var(--ink)">
+      {{ content | safe }}
+    </div>
+    <p style="margin-top:2.4rem"><a class="btn btn-out" href="/pastors-corner/">&larr; Back to Pastor's Corner</a></p>
+  </div>
+</section>

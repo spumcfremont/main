@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+title: Pastor's Corner — St. Paul United Methodist Church
+description: "Pastor Rajiv's weekly reflections and updates for the St. Paul UMC Fremont church family."
+permalink: /pastors-corner/
+---
+<section class="reveal in">
+  <div class="wrap">
+    <div class="sechead">
+      <p class="eyebrow" style="color:var(--flame)">From Pastor Rajiv</p>
+      <h2 style="color:var(--plum)">Pastor's Corner</h2>
+      <p class="lede">Reflections and updates to keep our church family connected through the week.</p>
+    </div>
+
+    {% if collections.post.length %}
+    <div class="grid g2c">
+      {% for post in collections.post %}
+      <a class="card acc-f" href="{{ post.url }}" style="text-decoration:none;color:inherit;display:block">
+        <span class="kicker">{{ post.data.date | readableDate }}</span>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.excerpt }}</p>
+        <p class="contact" style="margin-top:1rem">{{ post.data.author }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="lede">New posts are on the way — check back soon.</p>
+    {% endif %}
+  </div>
+</section>

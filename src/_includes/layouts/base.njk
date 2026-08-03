@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+{% include "css/base.css" %}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brandmark" href="/#top">
+      <svg viewBox="0 0 24 32" aria-hidden="true"><path d="M10 0h4v9h8v4h-8v19h-4V13H2V9h8z" fill="#4B1D7E"/></svg>
+      <span class="bm-text"><b>SAINT PAUL</b><span>United Methodist Church</span></span>
+    </a>
+    <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="/#worship">Worship</a>
+      <a href="/#welcome">About</a>
+      <a href="/#ministries">Ministries</a>
+      <a href="/#kids">Kids &amp; Youth</a>
+      <a href="/#preschool">Preschool</a>
+      <a href="/#calendar">Calendar</a>
+      <a href="/pastors-corner/">Pastor's Corner</a>
+      <a href="/#visit">Visit</a>
+    </nav>
+    <a class="give-btn" href="https://tithe.ly/give?c=1094212" target="_blank" rel="noopener">Give</a>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="footlogo">SAINT <em>PAUL</em></div>
+        <p style="margin-bottom:.8rem">United Methodist Church · Fremont, California</p>
+        <p style="font-family:var(--util);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0">Inspiration · Incarnation · Intersection · Inclusion</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/#worship">Worship</a></li>
+          <li><a href="/#welcome">New visitors</a></li>
+          <li><a href="/#ministries">Ministries</a></li>
+          <li><a href="/#kids">Kids &amp; youth</a></li>
+          <li><a href="/#preschool">Preschool</a></li>
+          <li><a href="/#outreach">Outreach</a></li>
+          <li><a href="/pastors-corner/">Pastor's Corner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:15104293990">(510) 429-3990</a></li>
+          <li><a href="mailto:welcome@belongatstpaul.org">welcome@belongatstpaul.org</a></li>
+          <li><a href="https://www.facebook.com/stpaulfremont" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://stpaulumcfremont.org/prayer-requests/" target="_blank" rel="noopener">Prayer requests</a></li>
+          <li><a href="https://tithe.ly/give?c=1094212" target="_blank" rel="noopener">Give</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footbar">
+      <span>33350 Peace Terrace, Fremont, CA 94555 · Sundays at 10:00 a.m.</span>
+      <span>California-Nevada Annual Conference · The United Methodist Church · <a href="/admin/">Staff Login</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+{% include "js/main.js" %}
+</script>
+</body>
+</html>
