@@ -1,18 +1,11 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
-const yaml = require("js-yaml");
 
 const md = markdownIt({ html: true });
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.setLibrary("md", md);
-
-  // Eleventy's global data files (src/_data/*) only parse json/js by
-  // default — register .yml so the CMS-editable seasonal feature data loads.
-  eleventyConfig.addDataExtension("yml", function (contents) {
-    return yaml.load(contents);
-  });
 
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("admin");
@@ -31,6 +24,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("outreach", function (collectionApi) {
     return collectionApi.getFilteredByTag("outreach").sort(function (a, b) {
       return a.data.order - b.data.order;
+    });
+  });
+
+  eleventyConfig.addCollection("seasonalFeature", function (collectionApi) {
+    return collectionApi.getFilteredByTag("seasonal-feature").filter(function (item) {
+      return item.data.active;
     });
   });
 

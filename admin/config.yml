@@ -66,17 +66,18 @@ collections:
       - { label: "Tags", name: "tags", widget: "hidden", default: ["outreach"] }
       - { label: "Body", name: "body", widget: "markdown", hint: "Write a bulleted schedule list, a short paragraph, or both." }
 
-  - name: "seasonal_feature"
-    label: "Seasonal Feature (Kids & Youth banner)"
-    files:
-      - file: "src/_data/seasonalFeature.yml"
-        label: "Seasonal Feature"
-        name: "seasonal_feature"
-        fields:
-          - { label: "Badge label", name: "badge", widget: "string" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Photo", name: "image", widget: "image", required: false }
-          - { label: "Photo alt text", name: "image_alt", widget: "string", required: false, hint: "Describe the photo for screen readers." }
-          - { label: "Description", name: "body", widget: "markdown" }
-          - { label: "Button label", name: "cta_label", widget: "string", required: false }
-          - { label: "Button link", name: "cta_url", widget: "string", required: false }
+  - name: "seasonal_features"
+    label: "Seasonal Features (Kids & Youth banner)"
+    folder: "src/seasonal-features"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Active", name: "active", widget: "boolean", default: false, hint: "Only ONE should be active at a time — that's the one shown on the homepage. Turn this on here and turn it off on the old one." }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Badge label", name: "badge", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+      - { label: "Photo alt text", name: "image_alt", widget: "string", required: false, hint: "Describe the photo for screen readers." }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Button label", name: "cta_label", widget: "string", required: false }
+      - { label: "Button link", name: "cta_url", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "hidden", default: ["seasonal-feature"] }
