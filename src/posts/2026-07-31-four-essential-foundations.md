@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: "New Sermon Series: Acts 2:42-47"
-author: Pastor Rajiv
+author: Pastor Rajiv Pathik
 date: 2026-07-31T10:00:00.000-07:00
 excerpt: >-
   St. Paul UMC Weekly Update: New Sermon Series Begins This Sunday
