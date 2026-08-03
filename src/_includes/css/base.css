@@ -157,7 +157,7 @@ section{padding:clamp(3.2rem,7vw,5.5rem) 0;position:relative}
 .card ul{margin:.4rem 0 0;padding:0;list-style:none}
 .card li{font-size:.95rem;padding:.42rem 0;border-bottom:1px dashed var(--line);display:flex;gap:.7rem;align-items:baseline}
 .card li:last-child{border-bottom:0}
-.card li b{font-family:var(--util);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent,var(--purple));flex:0 0 auto;min-width:5.6rem}
+.card li b,.card li strong{font-family:var(--util);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent,var(--purple));flex:0 0 auto;min-width:5.6rem}
 .contact{margin-top:1rem;font-family:var(--util);font-size:.76rem;color:#6b5b85;letter-spacing:.02em}
 .contact a{color:var(--accent,var(--purple));text-decoration:none;border-bottom:1px solid currentColor}
 

@@ -22,3 +22,72 @@ collections:
       - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Tags", name: "tags", widget: "hidden", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events"
+    folder: "src/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Details", name: "details", widget: "string", required: false, hint: "e.g. \"10:00 a.m.\" or a ministry name" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: ["event"] }
+
+  - name: "ministries"
+    label: "Ministries & Small Groups"
+    folder: "src/ministries"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Kicker (subtitle)", name: "kicker", widget: "string" }
+      - label: "Accent color"
+        name: "accent"
+        widget: "select"
+        options: &accent_options
+          - { label: "Purple", value: "p" }
+          - { label: "Orange (Flame)", value: "f" }
+          - { label: "Gold", value: "y" }
+          - { label: "Red (Crimson)", value: "c" }
+          - { label: "Blue", value: "b" }
+          - { label: "Green", value: "g" }
+        default: "p"
+      - { label: "Order", name: "order", widget: "number", hint: "Lower numbers show first.", value_type: "int" }
+      - { label: "Contact info", name: "contact", widget: "string", required: false, hint: "e.g. \"Jane Doe · (510) 555-1234\" — you can add a phone link like [(510) 555-1234](tel:15105551234)" }
+      - { label: "Button label", name: "cta_label", widget: "string", required: false, hint: "Only needed for a card with a button, like \"Give online\"" }
+      - { label: "Button link", name: "cta_url", widget: "string", required: false }
+      - { label: "Anchor ID", name: "anchor", widget: "hidden", required: false }
+      - { label: "Tags", name: "tags", widget: "hidden", default: ["ministry"] }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Write a bulleted schedule list, a short paragraph, or both." }
+
+  - name: "outreach"
+    label: "Outreach, Mission & Justice"
+    folder: "src/outreach"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Kicker (subtitle)", name: "kicker", widget: "string" }
+      - { label: "Accent color", name: "accent", widget: "select", options: *accent_options, default: "p" }
+      - { label: "Order", name: "order", widget: "number", hint: "Lower numbers show first.", value_type: "int" }
+      - { label: "Contact info", name: "contact", widget: "string", required: false, hint: "e.g. \"Jane Doe · (510) 555-1234\" — you can add a phone link like [(510) 555-1234](tel:15105551234)" }
+      - { label: "Button label", name: "cta_label", widget: "string", required: false, hint: "Only needed for a card with a button, like \"Give online\"" }
+      - { label: "Button link", name: "cta_url", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "hidden", default: ["outreach"] }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Write a bulleted schedule list, a short paragraph, or both." }
+
+  - name: "seasonal_feature"
+    label: "Seasonal Feature (Kids & Youth banner)"
+    files:
+      - file: "src/_data/seasonalFeature.yml"
+        label: "Seasonal Feature"
+        name: "seasonal_feature"
+        fields:
+          - { label: "Badge label", name: "badge", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Photo", name: "image", widget: "image", required: false }
+          - { label: "Photo alt text", name: "image_alt", widget: "string", required: false, hint: "Describe the photo for screen readers." }
+          - { label: "Description", name: "body", widget: "markdown" }
+          - { label: "Button label", name: "cta_label", widget: "string", required: false }
+          - { label: "Button link", name: "cta_url", widget: "string", required: false }
