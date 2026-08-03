@@ -23,17 +23,6 @@ collections:
       - { label: "Tags", name: "tags", widget: "hidden", default: ["post"] }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "events"
-    label: "Events"
-    folder: "src/events"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
-      - { label: "Details", name: "details", widget: "string", required: false, hint: "e.g. \"10:00 a.m.\" or a ministry name" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: ["event"] }
-
   - name: "ministries"
     label: "Ministries & Small Groups"
     folder: "src/ministries"

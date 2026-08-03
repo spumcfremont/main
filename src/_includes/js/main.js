@@ -25,25 +25,22 @@
   }
   window.addEventListener('scroll',sync,{passive:true});sync();
 
-  // upcoming events, filtered from today (sourced from the Events CMS collection)
+  // upcoming events, from the church's shared Google Calendar (via a Netlify Function proxy)
   function esc(s){
     return String(s).replace(/[&<>"']/g,function(c){
       return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
     });
   }
-  var EVENTS=[
-{%- for event in collections.event %}
-    [{{ event.data.date | htmlDateString | jsstring | safe }},{{ event.data.title | jsstring | safe }},{{ event.data.details | default("") | jsstring | safe }}]{% if not loop.last %},{% endif %}
-{%- endfor %}
-  ];
   var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var now=new Date();now.setHours(0,0,0,0);
-  var next=EVENTS.filter(function(e){return new Date(e[0]+'T00:00:00')>=now;});
-  var list=(next.length?next:EVENTS.slice(-6)).slice(0,7);
-  if(!next.length){document.getElementById('uphint').textContent='Looking ahead — these dates return each year on the church calendar.';}
-  document.getElementById('upcoming').innerHTML=list.map(function(e){
-    var d=new Date(e[0]+'T00:00:00');
-    return '<li><div class="update"><span>'+M[d.getMonth()]+'</span><strong>'+d.getDate()+'</strong></div>'+
-           '<div class="upmeta"><h4>'+esc(e[1])+'</h4>'+(e[2]?'<p>'+esc(e[2])+'</p>':'')+'</div></li>';
-  }).join('');
+  function noEvents(){
+    document.getElementById('uphint').textContent='No upcoming events posted yet — check back soon!';
+  }
+  fetch('/api/events').then(function(res){return res.json();}).then(function(events){
+    if(!events || !events.length){noEvents();return;}
+    document.getElementById('upcoming').innerHTML=events.map(function(e){
+      var d=new Date(e.date+'T00:00:00');
+      return '<li><div class="update"><span>'+M[d.getMonth()]+'</span><strong>'+d.getDate()+'</strong></div>'+
+             '<div class="upmeta"><h4>'+esc(e.title)+'</h4>'+(e.details?'<p>'+esc(e.details)+'</p>':'')+'</div></li>';
+    }).join('');
+  }).catch(noEvents);
 })();

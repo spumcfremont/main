@@ -22,10 +22,6 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByTag("post").reverse();
   });
 
-  eleventyConfig.addCollection("event", function (collectionApi) {
-    return collectionApi.getFilteredByTag("event");
-  });
-
   eleventyConfig.addCollection("ministry", function (collectionApi) {
     return collectionApi.getFilteredByTag("ministry").sort(function (a, b) {
       return a.data.order - b.data.order;
@@ -49,13 +45,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("htmlDateString", function (dateObj) {
     return new Date(dateObj).toISOString().slice(0, 10);
-  });
-
-  // Safely embeds a CMS-editable string as a JS string literal inside an
-  // inline <script> block — dump/JSON.stringify alone doesn't escape "<",
-  // so a value containing "</script>" would otherwise truncate the page.
-  eleventyConfig.addFilter("jsstring", function (str) {
-    return JSON.stringify(str || "").replace(/</g, "\\u003c");
   });
 
   eleventyConfig.addFilter("markdown", function (str) {
