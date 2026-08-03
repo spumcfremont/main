@@ -1,4 +1,6 @@
 ---
+active: true
+order: 2
 title: Christmas Cantata
 badge: Test Badge
 image: /images/uploads/763122726_1705820814021509_5314921186505928556_n.jpeg

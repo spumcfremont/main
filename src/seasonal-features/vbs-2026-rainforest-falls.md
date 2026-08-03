@@ -1,4 +1,6 @@
 ---
+active: true
+order: 1
 title: Rainforest Falls — Exploring the Nature of God
 badge: Vacation Bible School 2026
 image: /images/uploads/vbs-2026-rainforest-falls.jpg

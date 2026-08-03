@@ -26,12 +26,12 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
   </div>
 </section>
 
-<!-- ========== SEASONAL FEATURE ========== -->
-{%- set feature = collections.seasonalFeature[0] %}
-{%- if feature %}
+<!-- ========== SEASONAL FEATURE(S) ========== -->
+{%- if collections.seasonalFeature.length %}
 <section class="reveal">
   <div class="wrap">
-    <div class="feature" style="margin-bottom:0">
+    {%- for feature in collections.seasonalFeature %}
+    <div class="feature"{% if not loop.last %} style="margin-bottom:2.6rem"{% endif %}>
       <img src="{{ feature.data.image }}" alt="{{ feature.data.image_alt }}">
       <div>
         <span class="badge">{{ feature.data.badge }}</span>
@@ -42,6 +42,7 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
         {%- endif %}
       </div>
     </div>
+    {%- endfor %}
   </div>
 </section>
 {%- endif %}

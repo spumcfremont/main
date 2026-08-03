@@ -72,6 +72,8 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Active", name: "active", widget: "boolean", default: false, hint: "Show this banner near the top of the homepage. Any number can be active at once (e.g. Christmas Cantata and Christmas Eve Service both showing in December) — they'll stack in Order below." }
+      - { label: "Order", name: "order", widget: "number", default: 1, hint: "When more than one is active at once, lower numbers show first.", value_type: "int" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Badge label", name: "badge", widget: "string" }
       - { label: "Photo", name: "image", widget: "image", required: false }
@@ -80,19 +82,3 @@ collections:
       - { label: "Button label", name: "cta_label", widget: "string", required: false }
       - { label: "Button link", name: "cta_url", widget: "string", required: false }
       - { label: "Tags", name: "tags", widget: "hidden", default: ["seasonal-feature"] }
-
-  - name: "current_seasonal_feature"
-    label: "Current Homepage Feature"
-    files:
-      - file: "src/_data/currentSeasonalFeature.json"
-        label: "Current Feature"
-        name: "current_seasonal_feature"
-        fields:
-          - label: "Which banner is showing"
-            name: "active"
-            widget: "relation"
-            collection: "seasonal_features"
-            search_fields: ["title"]
-            display_fields: ["title"]
-            value_field: "{{slug}}"
-            hint: "Pick which banner from Homepage Feature Banners shows near the top of the homepage right now."
