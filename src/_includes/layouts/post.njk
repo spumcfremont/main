@@ -16,6 +16,10 @@ layout: layouts/base.njk
     <div class="lede" style="color:var(--ink)">
       {{ content | safe }}
     </div>
-    <p style="margin-top:2.4rem"><a class="btn btn-out" href="/pastors-corner/">&larr; Back to Pastor's Corner</a></p>
+    <div class="contact" style="margin-top:2rem;display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absoluteUrl('https://belongatstpaul.org') | urlencode }}" target="_blank" rel="noopener">Share on Facebook</a>
+      <a href="https://www.facebook.com/stpaulfremont" target="_blank" rel="noopener">Follow us on Facebook</a>
+    </div>
+    <p style="margin-top:1.6rem"><a class="btn btn-out" href="/pastors-corner/">&larr; Back to Pastor's Corner</a></p>
   </div>
 </section>
