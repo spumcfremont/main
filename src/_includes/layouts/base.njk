@@ -7,7 +7,7 @@
 <meta name="description" content="{{ description }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 {% include "css/base.css" %}
 </style>
@@ -16,20 +16,21 @@
 <body>
 
 <!-- ========== HEADER ========== -->
-<header class="topbar">
+<header class="topbar" id="hdr">
   <div class="wrap topbar-in">
     <a class="brandmark" href="/#top">
-      <svg viewBox="0 0 24 32" aria-hidden="true"><path d="M10 0h4v9h8v4h-8v19h-4V13H2V9h8z" fill="#4B1D7E"/></svg>
-      <span class="bm-text"><b>SAINT PAUL</b><span>United Methodist Church</span></span>
+      <img src="/images/uploads/saint-paul-logo.png" alt="Saint Paul United Methodist Church">
     </a>
     <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
     <nav class="mainnav" id="mainnav">
       <a href="/#worship">Worship</a>
-      <a href="/#welcome">About</a>
+      <a href="/#first">About</a>
+      <a href="/#week">This week</a>
       <a href="/#ministries">Ministries</a>
+      <a href="/#outreach">Outreach</a>
       <a href="/#kids">Kids &amp; Youth</a>
       <a href="/#preschool">Preschool</a>
-      <a href="/#calendar">Calendar</a>
+      <a href="/calendar/">Calendar</a>
       <a href="/pastors-corner/">Pastor's Corner</a>
       <a href="/#visit">Visit</a>
     </nav>
@@ -44,20 +45,27 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <div class="footlogo">SAINT <em>PAUL</em></div>
-        <p style="margin-bottom:.8rem">United Methodist Church · Fremont, California</p>
-        <p style="font-family:var(--util);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0">Inspiration · Incarnation · Intersection · Inclusion</p>
+        <div class="footlogo"><img src="/images/uploads/saint-paul-logo.png" alt="Saint Paul United Methodist Church"></div>
+        <p class="ft-note">United Methodist Church · Fremont, California. All are welcome, and we mean that.</p>
       </div>
       <div>
         <h4>Explore</h4>
         <ul>
           <li><a href="/#worship">Worship</a></li>
-          <li><a href="/#welcome">New visitors</a></li>
+          <li><a href="/#first">New visitors</a></li>
+          <li><a href="/#week">This week</a></li>
           <li><a href="/#ministries">Ministries</a></li>
+          <li><a href="/#outreach">Outreach</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
           <li><a href="/#kids">Kids &amp; youth</a></li>
           <li><a href="/#preschool">Preschool</a></li>
-          <li><a href="/#outreach">Outreach</a></li>
-          <li><a href="/pastors-corner/">Pastor's Corner</a></li>
+          <li><a href="/#teams">Teams &amp; finance</a></li>
+          <li><a href="/#story">Our story</a></li>
+          <li><a href="/#visit">Visit</a></li>
         </ul>
       </div>
       <div>
@@ -68,6 +76,7 @@
           <li><a href="https://www.facebook.com/stpaulfremont" target="_blank" rel="noopener">Facebook</a></li>
           <li><a href="https://stpaulumcfremont.org/prayer-requests/" target="_blank" rel="noopener">Prayer requests</a></li>
           <li><a href="https://tithe.ly/give?c=1094212" target="_blank" rel="noopener">Give</a></li>
+          <li><a href="/pastors-corner/">Pastor's Corner</a></li>
         </ul>
       </div>
     </div>

@@ -1,25 +1,89 @@
 ---
 layout: layouts/base.njk
 title: Pastor's Corner — St. Paul United Methodist Church
-description: "Pastor Rajiv's weekly reflections and updates for the St. Paul UMC Fremont church family."
+description: "Meet Rev. Rajiv Pathik, and read his weekly reflections and updates for the St. Paul UMC Fremont church family."
 permalink: /pastors-corner/
 ---
 <section class="reveal in">
+  <div class="wrap intro">
+    <figure class="portrait">
+      <img src="/images/uploads/rev-rajiv-pathik-portrait.jpg" alt="Rev. Rajiv Pathik, pastor of Saint Paul United Methodist Church">
+      <figcaption>Rev. Rajiv Pathik · Fremont, California</figcaption>
+    </figure>
+    <div class="intro-txt">
+      <p class="eyebrow">Meet <em>Rev. Rajiv Pathik</em></p>
+      <p class="page-role">Pastor · Since July 2026</p>
+      <p class="lede-first">Rajiv began as pastor of Saint Paul in July 2026, after nine years at Good Samaritan United Methodist Church in Cupertino. He has been in pastoral ministry for more than twenty-five years, in three countries.</p>
+    </div>
+    <div class="plate">
+      <h2>At a glance</h2>
+      <div class="plate-row"><div class="plate-k">Here since</div><div class="plate-v">July 2026 — appointed by the California-Nevada Annual Conference</div></div>
+      <div class="plate-row"><div class="plate-k">In ministry</div><div class="plate-v">More than 25 years</div></div>
+      <div class="plate-row"><div class="plate-k">Previously</div><div class="plate-v">Good Samaritan UMC, Cupertino, 2017–2026 · First Church, Redding, six years</div></div>
+      <div class="plate-row"><div class="plate-k">Studied at</div><div class="plate-v">South India Biblical Seminary · graduate schools in South Korea · Fuller Theological Seminary</div></div>
+      <div class="plate-row"><div class="plate-k">Home</div><div class="plate-v">Sunnyvale, California — with his wife, Anna Nikitina, and daughters Eva and Sonia</div></div>
+      <div class="plate-row"><div class="plate-k">Reach him</div><div class="plate-v"><a href="mailto:welcome@belongatstpaul.org">welcome@belongatstpaul.org</a> / <a href="tel:15104293990">(510) 429-3990</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal in tint">
+  <div class="wrap prof">
+    <div class="prose">
+      <p class="first">Before Cupertino he spent six years at First Church in Redding, California, first as associate pastor and then as interim. Between those two appointments he has spent most of his working life doing what he'll be doing here — preaching on Sunday, sitting with people the rest of the week.</p>
+      <p>Rajiv was born and raised in India, and his education followed him around the world. He earned a Bachelor of Theology at South India Biblical Seminary, then studied in South Korea, where he completed a Master of Theology, a Master of Missions, and a Master in Public Administration focused on international peace and conflict studies. He finished his Master of Divinity at Fuller Theological Seminary.</p>
+      <p>Not all of that ministry has happened in a sanctuary. He has worked at a social welfare trust in Gujarat, India, and at the International Seafarers Center in Long Beach, California, sitting with men a long way from home and not much to go back to. Those years are why justice and reconciliation aren't side projects in his preaching — they're the point of it.</p>
+      <p>At home in Sunnyvale, Rajiv lives with his wife, Anna Nikitina. He cooks his way through other people's cuisines, watches historical films and the occasional action movie, plays tennis, and spends as much time outdoors as he can with his daughters, Eva and Sonia.</p>
+      <p class="close">He arrives with a deep love for God, a real interest in people, and a heart for building a community rooted in grace, hope and service. The simplest way to meet him is to come on a Sunday — he's usually near the door afterward.</p>
+    </div>
+  </div>
+</section>
+
+<section id="alongside" class="reveal in">
   <div class="wrap">
     <div class="sechead">
-      <p class="eyebrow" style="color:var(--flame)">From Pastor Rajiv</p>
-      <h2 style="color:var(--plum)">Pastor's Corner</h2>
+      <p class="eyebrow">What that means on a Sunday</p>
+      <h2>A pastor is only <em>half of a church</em></h2>
+      <p class="lede">The rest of it is already here — sixty years of it. These are the easiest places to start if you'd like to meet him, or anyone else.</p>
+    </div>
+    <div class="grid g3c">
+      <article class="card card--accent">
+        <span class="kicker">Sundays · 10:00 a.m.</span>
+        <h3>Come to worship</h3>
+        <p>Communion is served every Sunday at an open table, and Rajiv is usually near the door afterward. No appointment, no introduction needed.</p>
+        <p style="margin-top:1rem"><a class="btn btn-out" href="/#first">Plan your first Sunday</a></p>
+      </article>
+      <article class="card">
+        <span class="kicker">Weekdays</span>
+        <h3>Ask for a conversation</h3>
+        <p>Call the church office at (510) 429-3990 or email welcome@belongatstpaul.org, and someone will find a time. Prayer requests can be sent any time.</p>
+      </article>
+      <article class="card">
+        <span class="kicker">Any week of the year</span>
+        <h3>Join something</h3>
+        <p>Bible study on Sunday, Wednesday or Friday, line dancing on Thursday, dinner at Abode Shelter on Friday afternoon. None of it requires an invitation.</p>
+        <p style="margin-top:1rem"><a class="btn btn-out" href="/#week">See the week</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tint reveal in">
+  <div class="wrap">
+    <div class="sechead">
+      <p class="eyebrow">From Pastor Rajiv</p>
+      <h2>Pastor's Corner</h2>
       <p class="lede">Reflections and updates to keep our church family connected through the week.</p>
     </div>
 
     {% if collections.post.length %}
     <div class="grid g2c">
       {% for post in collections.post %}
-      <a class="card acc-f" href="{{ post.url }}" style="text-decoration:none;color:inherit;display:block">
+      <a class="card" href="{{ post.url }}" style="text-decoration:none;color:inherit;display:block">
         <span class="kicker">{{ post.data.date | readableDate }}</span>
         <h3>{{ post.data.title }}</h3>
         <p>{{ post.data.excerpt }}</p>
-        <p class="contact" style="margin-top:1rem">{{ post.data.author }}</p>
+        <p class="contact">{{ post.data.author }}</p>
       </a>
       {% endfor %}
     </div>

@@ -1,4 +1,9 @@
 (function(){
+  // header shrinks on scroll
+  var hdr=document.getElementById('hdr');
+  function syncHdr(){hdr.classList.toggle('stuck',window.scrollY>12);}
+  window.addEventListener('scroll',syncHdr,{passive:true});syncHdr();
+
   // mobile nav
   var t=document.getElementById('navtoggle'),n=document.getElementById('mainnav');
   t.addEventListener('click',function(){
