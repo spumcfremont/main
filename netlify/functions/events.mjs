@@ -48,14 +48,24 @@ export default async (req, context) => {
     return jsonResponse([], 60);
   }
 
+  const requestUrl = new URL(req.url);
+  const timeMin = requestUrl.searchParams.get("timeMin") || new Date().toISOString();
+  const timeMax = requestUrl.searchParams.get("timeMax");
+  const requestedMax = parseInt(requestUrl.searchParams.get("maxResults"), 10);
+  const maxResults =
+    Number.isInteger(requestedMax) && requestedMax > 0 ? Math.min(requestedMax, 250) : 7;
+
   const url = new URL(
     `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`
   );
   url.searchParams.set("key", apiKey);
-  url.searchParams.set("timeMin", new Date().toISOString());
+  url.searchParams.set("timeMin", timeMin);
+  if (timeMax) {
+    url.searchParams.set("timeMax", timeMax);
+  }
   url.searchParams.set("singleEvents", "true");
   url.searchParams.set("orderBy", "startTime");
-  url.searchParams.set("maxResults", "7");
+  url.searchParams.set("maxResults", String(maxResults));
 
   try {
     const res = await fetch(url);

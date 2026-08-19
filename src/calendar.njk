@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: Calendar — St. Paul United Methodist Church
+description: "Browse everything coming up at St. Paul United Methodist Church, Fremont CA, pulled from our shared church calendar."
+permalink: /calendar/
+---
+<section class="reveal in">
+  <div class="wrap">
+    <div class="sechead">
+      <p class="eyebrow">Mark your calendar</p>
+      <h2>The full calendar</h2>
+      <p class="lede">Everything coming up at Saint Paul, straight from our shared church calendar.</p>
+    </div>
+
+    <div class="cal-nav">
+      <button type="button" class="cal-arrow" id="cal-prev" aria-label="Previous month">&larr;</button>
+      <div class="cal-nav-mid">
+        <h3 id="cal-month-label">&nbsp;</h3>
+        <button type="button" class="cal-today" id="cal-today">Today</button>
+      </div>
+      <button type="button" class="cal-arrow" id="cal-next" aria-label="Next month">&rarr;</button>
+    </div>
+
+    <div class="cal-weekdays" aria-hidden="true">
+      <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+    </div>
+
+    <div class="cal-grid" id="cal-grid"></div>
+    <p class="lede" id="cal-hint" style="margin-top:1.2rem"></p>
+  </div>
+</section>
+<script>
+{% include "js/calendar.js" %}
+</script>

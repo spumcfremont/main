@@ -48,4 +48,26 @@
              '<div class="upmeta"><h4>'+esc(e.title)+'</h4>'+(e.details?'<p>'+esc(e.details)+'</p>':'')+'</div></li>';
     }).join('');
   }).catch(noEvents);
+
+  // Contact Us form — submit via fetch so Netlify Forms captures it without a page reload
+  var contactForm=document.getElementById('contact-form');
+  if(contactForm){
+    contactForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var status=document.getElementById('contact-status');
+      var data=new URLSearchParams(new FormData(contactForm)).toString();
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
+        .then(function(res){
+          if(!res.ok){throw new Error('Submission failed');}
+          contactForm.reset();
+          contactForm.style.display='none';
+          status.textContent='Thanks for reaching out — we\'ll be in touch soon.';
+          status.style.display='block';
+        })
+        .catch(function(){
+          status.textContent='Something went wrong sending that. Please email us directly at welcome@belongatstpaul.org.';
+          status.style.display='block';
+        });
+    });
+  }
 })();

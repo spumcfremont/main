@@ -4,7 +4,7 @@ kicker: Online, secure
 accent: p
 order: 6
 cta_label: Give online
-cta_url: "https://tithe.ly/give?c=1094212"
+cta_url: "/give/"
 tags: ["outreach"]
 ---
 
