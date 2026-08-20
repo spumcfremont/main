@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+{% include "css/base.css" %}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="topbar" id="hdr">
+  <div class="wrap topbar-in">
+    <a class="brandmark" href="/#top">
+      <img src="/images/uploads/precious-time-logo.png" alt="Precious Time Christian Preschool">
+    </a>
+    <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="mainnav">Menu</button>
+    <nav class="mainnav" id="mainnav">
+      <a href="/#about">About</a>
+      <a href="/#staff">Our Staff</a>
+      <a href="/#reviews">Reviews</a>
+      <a href="/#tour">Schedule a Tour</a>
+      <a href="/#visit">Visit</a>
+      <a class="church-link" href="https://belongatstpaul.org">Saint Paul Church →</a>
+    </nav>
+    <a class="apply-btn" href="/#enroll">Apply Now</a>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brandmark" style="margin-bottom:.8rem"><img src="/images/uploads/precious-time-logo.png" alt="Precious Time Christian Preschool"></div>
+        <p class="ft-note">A ministry of Saint Paul United Methodist Church, caring for children ages 2–6 in a loving Christian environment.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/#about">About us</a></li>
+          <li><a href="/#staff">Our staff</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
+          <li><a href="/#tour">Schedule a tour</a></li>
+          <li><a href="/#enroll">Apply now</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:15104293993">(510) 429-3993</a></li>
+          <li><a href="mailto:precioustimepreschool@gmail.com">precioustimepreschool@gmail.com</a></li>
+          <li><a href="https://belongatstpaul.org">Saint Paul United Methodist Church</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footbar">
+      <span>33350 Peace Terrace, Fremont, CA 94555</span>
+      <span>Open 7:00 a.m.–6:00 p.m., Monday–Friday</span>
+    </div>
+    <p class="license-note">California Child Care Licensing #013415769</p>
+  </div>
+</footer>
+
+<script>
+{% include "js/main.js" %}
+</script>
+</body>
+</html>
