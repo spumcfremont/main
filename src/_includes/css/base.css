@@ -151,7 +151,7 @@ p{margin:0 0 1.05em}
 .pathwrap{position:sticky;top:calc(56px + 28px);z-index:50;background:rgba(252,247,246,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .path{display:flex;align-items:center;padding:.55rem 0;gap:0}
 .path-node{
-  flex:1 1 0;display:flex;align-items:center;gap:.55rem;text-decoration:none;position:relative;
+  flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:.55rem;text-decoration:none;position:relative;
   padding:.35rem .3rem;min-width:0;
 }
 .path-node::before{
@@ -354,6 +354,7 @@ footer a:hover{color:var(--blush)}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .ft-note{font-size:15px;color:rgba(255,255,255,.62);margin-top:18px;max-width:38ch}
 .footbar{border-top:1px solid rgba(255,255,255,.13);padding-top:1.4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--util);font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.55)}
+.ein-note{margin-top:.8rem;font-family:var(--util);font-size:.62rem;letter-spacing:.03em;line-height:1.5;color:rgba(255,255,255,.35)}
 
 /* ---------- reveal-on-load stagger (hero) ---------- */
 .ld{opacity:0;transform:translateY(16px);animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards}
@@ -370,6 +371,20 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
   .visit{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
+/* Nav collapses well above the general mobile breakpoint — with 10 nav
+   items + logo + Give button, the header runs out of room long before
+   760px (overflow starts around ~1100px depending on label lengths). */
+@media(max-width:1200px){
+  .mainnav{
+    display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);
+    flex-direction:column;align-items:stretch;gap:0;padding:.6rem 1.25rem 1.1rem;border-bottom:1px solid var(--line);
+  }
+  .mainnav.open{display:flex}
+  .mainnav a{padding:.6rem 0;width:100%;border-bottom:1px solid var(--line-soft);border-radius:0}
+  .navtoggle{display:block}
+  .topbar-in{position:relative;flex-wrap:wrap}
+  .give-btn{order:-1;margin-left:auto}
+}
 @media(max-width:760px){
   html{scroll-padding-top:90px}
   body{font-size:16.5px}
@@ -380,15 +395,6 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
   .cal-daynum{flex:0 0 auto}
   .cal-events{flex:1}
   .cal-day:not(:has(.cal-event)){display:none}
-  .mainnav{
-    display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);
-    flex-direction:column;align-items:stretch;gap:0;padding:.6rem 1.25rem 1.1rem;border-bottom:1px solid var(--line);
-  }
-  .mainnav.open{display:flex}
-  .mainnav a{padding:.6rem 0;width:100%;border-bottom:1px solid var(--line-soft);border-radius:0}
-  .navtoggle{display:block}
-  .topbar-in{position:relative;flex-wrap:wrap}
-  .give-btn{order:-1;margin-left:auto}
   .path{overflow-x:auto;gap:.4rem;scrollbar-width:none}
   .path::-webkit-scrollbar{display:none}
   .path-node{flex:0 0 auto}
@@ -455,3 +461,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brick);outline-offs
   .intro{grid-template-columns:1fr;gap:30px;grid-template-areas:"text" "photo" "plate"}
   .portrait{max-width:330px;margin:0}
 }
+
+/* ---------- sub-page hero (text + illustration side by side) ---------- */
+.page-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,4vw,58px);align-items:center;padding-bottom:clamp(30px,4vw,60px)}
+.illo-hero{width:100%;height:auto}
+.illo.spot{width:100%;max-width:120px;height:auto;margin-bottom:1rem}
+@media(max-width:1000px){
+  .page-hero{grid-template-columns:1fr;gap:26px}
+}
+
+.note{margin-top:1.4rem;font-size:.92rem;color:rgba(43,12,34,.65)}
+.who{margin-top:.9rem;font-family:var(--util);font-size:.82rem;letter-spacing:.03em;color:var(--plum)}
+.who a{color:inherit}
+.sig{font-family:var(--display);font-style:italic;color:var(--brick);margin-top:1rem}

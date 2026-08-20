@@ -37,17 +37,20 @@
     });
   }
   var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  function noEvents(){
-    document.getElementById('uphint').textContent='No upcoming events posted yet — check back soon!';
+  var upcomingEl=document.getElementById('upcoming');
+  if(upcomingEl){
+    function noEvents(){
+      document.getElementById('uphint').textContent='No upcoming events posted yet — check back soon!';
+    }
+    fetch('/api/events').then(function(res){return res.json();}).then(function(events){
+      if(!events || !events.length){noEvents();return;}
+      upcomingEl.innerHTML=events.map(function(e){
+        var d=new Date(e.date+'T00:00:00');
+        return '<li><div class="update"><span>'+M[d.getMonth()]+'</span><strong>'+d.getDate()+'</strong></div>'+
+               '<div class="upmeta"><h4>'+esc(e.title)+'</h4>'+(e.details?'<p>'+esc(e.details)+'</p>':'')+'</div></li>';
+      }).join('');
+    }).catch(noEvents);
   }
-  fetch('/api/events').then(function(res){return res.json();}).then(function(events){
-    if(!events || !events.length){noEvents();return;}
-    document.getElementById('upcoming').innerHTML=events.map(function(e){
-      var d=new Date(e.date+'T00:00:00');
-      return '<li><div class="update"><span>'+M[d.getMonth()]+'</span><strong>'+d.getDate()+'</strong></div>'+
-             '<div class="upmeta"><h4>'+esc(e.title)+'</h4>'+(e.details?'<p>'+esc(e.details)+'</p>':'')+'</div></li>';
-    }).join('');
-  }).catch(noEvents);
 
   // Contact Us form — submit via fetch so Netlify Forms captures it without a page reload
   var contactForm=document.getElementById('contact-form');
