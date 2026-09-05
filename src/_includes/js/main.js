@@ -48,7 +48,11 @@
     function noEvents(){
       document.getElementById('uphint').textContent='No upcoming events posted yet — check back soon!';
     }
-    fetch('/api/events').then(function(res){return res.json();}).then(function(events){
+    var now=new Date();
+    var monthEnd=new Date(now.getFullYear(),now.getMonth()+1,0,23,59,59);
+    var qs='timeMin='+encodeURIComponent(now.toISOString())+
+      '&timeMax='+encodeURIComponent(monthEnd.toISOString())+'&maxResults=50';
+    fetch('/api/events?'+qs).then(function(res){return res.json();}).then(function(events){
       if(!events || !events.length){noEvents();return;}
       upcomingEl.innerHTML=events.map(function(e){
         var d=new Date(e.date+'T00:00:00');
