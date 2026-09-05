@@ -6,7 +6,9 @@ description: "Precious Time Christian Preschool, a ministry of Saint Paul United
 <div id="top"></div>
 <section class="hero">
   <div class="wrap hero-in">
-    <img class="hero-logo" src="/images/uploads/precious-time-logo.png" alt="Precious Time Christian Preschool">
+    <div class="hero-logo-plate">
+      <img class="hero-logo" src="/images/uploads/precious-time-logo.png?v=3" alt="Precious Time Christian Preschool">
+    </div>
     <h1>A <em>precious time</em> to learn, play, and grow</h1>
     <p class="lede">A ministry of Saint Paul United Methodist Church, caring for children ages 2–6 in a loving, faith-filled environment in Fremont, California.</p>
 
@@ -104,47 +106,65 @@ description: "Precious Time Christian Preschool, a ministry of Saint Paul United
       <h2>Schedule a tour</h2>
       <p class="lede">We'd love to show you around. Tell us a bit about what you're looking for and a good time to visit, and we'll follow up to confirm.</p>
     </div>
-    <form name="tour-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="tour-form">
-      <input type="hidden" name="form-name" value="tour-request">
-      <p style="display:none">
-        <label>Don't fill this out if you're human: <input name="bot-field"></label>
-      </p>
+    <form id="tour-form" method="POST"
+      action="https://docs.google.com/forms/d/e/1FAIpQLScDEZOU7BAilajRkXjOZ9bHBGb3tPn5vUWdrDluyNLSYELsCw/formResponse">
       <div class="field-row">
         <div class="field">
           <label for="tf-name">Name</label>
-          <input type="text" id="tf-name" name="name" required>
+          <input type="text" id="tf-name" name="entry.572477280" required>
         </div>
         <div class="field">
           <label for="tf-email">Email</label>
-          <input type="email" id="tf-email" name="email" required>
+          <input type="email" id="tf-email" name="entry.1347231140" required>
         </div>
       </div>
       <div class="field-row">
         <div class="field">
           <label for="tf-phone">Phone</label>
-          <input type="tel" id="tf-phone" name="phone" required>
+          <input type="tel" id="tf-phone" name="entry.1569047645" required>
         </div>
         <div class="field">
           <label for="tf-date">Preferred date</label>
-          <input type="date" id="tf-date" name="date" required>
+          <input type="date" id="tf-date" name="entry.644550688" required>
         </div>
       </div>
       <div class="field">
         <label for="tf-time">Preferred time</label>
-        <select id="tf-time" name="time">
+        <select id="tf-time" name="entry.1174493635">
           <option value="Morning">Morning</option>
           <option value="Afternoon">Afternoon</option>
         </select>
       </div>
       <div class="field">
         <label for="tf-notes">Notes</label>
-        <textarea id="tf-notes" name="notes" rows="4"></textarea>
+        <textarea id="tf-notes" name="entry.980133220" rows="4"></textarea>
       </div>
       <button type="submit" class="btn btn-solid">Request a tour</button>
-      <p id="tour-status" class="lede" style="margin-top:1rem;display:none"></p>
     </form>
+    <p id="tour-status" class="lede" style="margin-top:1rem;display:none"></p>
   </div>
 </section>
+<script>
+(function(){
+  var form=document.getElementById('tour-form');
+  var status=document.getElementById('tour-status');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new URLSearchParams(new FormData(form));
+    fetch(form.action,{method:'POST',mode:'no-cors',body:data})
+      .then(function(){
+        form.reset();
+        form.style.display='none';
+        status.textContent='Thank you, we will get back to you at earliest convenience!';
+        status.style.display='block';
+      })
+      .catch(function(){
+        status.textContent='Something went wrong sending that. Please call (510) 429-3993 or email us directly.';
+        status.style.display='block';
+      });
+  });
+})();
+</script>
 
 <!-- ========== ENROLLMENT / APPLY NOW (placeholder) ========== -->
 <section id="enroll" class="band">

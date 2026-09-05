@@ -29,7 +29,7 @@
   --sec:clamp(76px,9vw,142px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:140px;-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--paper);color:var(--ink);
   font-family:var(--body);font-size:17px;line-height:1.62;
@@ -139,17 +139,20 @@ p{margin:0 0 1.05em}
 /* ---------- forms (contact, update-info) ---------- */
 .field{margin-bottom:1.2rem}
 .field label{display:block;font-family:var(--util);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--plum);margin-bottom:.4rem}
-.field input,.field textarea{
+.field input,.field textarea,.field select{
   width:100%;font-family:var(--body);font-size:1rem;color:var(--ink);
   border:1px solid var(--line);border-radius:3px;padding:.7rem .9rem;background:#fff;
   transition:border-color .2s;
 }
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--plum)}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--plum)}
+.check-row{display:flex;gap:1.4rem;flex-wrap:wrap}
+.check-row label{display:flex;align-items:center;gap:.4rem;font-family:var(--body);font-size:1rem;color:var(--ink);text-transform:none;letter-spacing:normal;font-weight:400;margin-bottom:0}
+.check-row input{width:auto}
 .field textarea{resize:vertical}
 
 /* ---------- signature: the path of three words ---------- */
 .pathwrap{position:sticky;top:calc(56px + 28px);z-index:50;background:rgba(252,247,246,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.path{display:flex;align-items:center;padding:.55rem 0;gap:0}
+.path{display:flex;align-items:center;justify-content:center;padding:.55rem 0;gap:0}
 .path-node{
   flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:.55rem;text-decoration:none;position:relative;
   padding:.35rem .3rem;min-width:0;
@@ -380,13 +383,13 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
     flex-direction:column;align-items:stretch;gap:0;padding:.6rem 1.25rem 1.1rem;border-bottom:1px solid var(--line);
   }
   .mainnav.open{display:flex}
-  .mainnav a{padding:.6rem 0;width:100%;border-bottom:1px solid var(--line-soft);border-radius:0}
+  .mainnav a{padding:.6rem 0;width:100%;text-align:center;border-bottom:1px solid var(--line-soft);border-radius:0}
   .navtoggle{display:block}
-  .topbar-in{position:relative;flex-wrap:wrap}
-  .give-btn{order:-1;margin-left:auto}
+  .topbar-in{position:relative;flex-wrap:wrap;justify-content:center;gap:16px}
+  .give-btn{order:-1}
 }
 @media(max-width:760px){
-  html{scroll-padding-top:90px}
+  html{scroll-padding-top:130px}
   body{font-size:16.5px}
   .cal-weekdays{display:none}
   .cal-grid{grid-template-columns:1fr}

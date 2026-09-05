@@ -1,0 +1,85 @@
+---
+layout: layouts/base.njk
+title: Church Prayer Request Form — St. Paul United Methodist Church
+description: "Share a prayer request with St. Paul United Methodist Church, Fremont CA."
+permalink: /prayer-requests/
+---
+<section class="reveal in">
+  <div class="wrap" style="max-width:640px">
+    <div class="sechead">
+      <p class="eyebrow">Prayer</p>
+      <h2>Church <em>Prayer Request</em> Form</h2>
+      <p class="lede">"Bear one another's burdens, and so fulfill the law of Christ." — Galatians 6:2</p>
+      <p class="lede">No matter what you are going through, our church community wants to stand with you in prayer. Please use this form to share your needs, praises, or unspoken requests. Every request is handled with deep care and respect for your privacy.</p>
+    </div>
+    <form id="prayer-form" method="POST"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSeRYDCKSNwDlsorW5Ki2SongcuPGNXFXWp01JBRY3LczUEh-A/formResponse">
+      <div class="field">
+        <label for="pf-name">Name</label>
+        <input type="text" id="pf-name" name="entry.1551647952" required>
+      </div>
+      <div class="field">
+        <label for="pf-for">Who is this prayer request for?</label>
+        <select id="pf-for" name="entry.1131555767">
+          <option value="Myself">Myself</option>
+          <option value="A family member">A family member</option>
+          <option value="A friend/co-worker">A friend/co-worker</option>
+          <option value="Unspoken/Private">Unspoken/Private</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pf-request">Your Prayer Request</label>
+        <textarea id="pf-request" name="entry.1724578999" rows="5" required></textarea>
+      </div>
+      <div class="field">
+        <label for="pf-privacy">Privacy Level</label>
+        <select id="pf-privacy" name="entry.82578089">
+          <option value="Keep strictly Confidential (Pastors only)">Keep strictly confidential (pastors only)</option>
+          <option value="Share with the church prayer team">Share with the church prayer team</option>
+          <option value="Share publicly in the church bulletin/newsletter">Share publicly in the church bulletin/newsletter</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pf-contact">Would you like a pastor to contact you?</label>
+        <select id="pf-contact" name="entry.884908063">
+          <option value="yes, please email me.">Yes, please email me</option>
+          <option value="Yes, please call me.">Yes, please call me</option>
+          <option value="Yes, please text me.">Yes, please text me</option>
+          <option value="No, just please pray.">No, just please pray</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="pf-email">Email Address</label>
+        <input type="email" id="pf-email" name="entry.346846703">
+      </div>
+      <div class="field">
+        <label for="pf-phone">Phone Number</label>
+        <input type="tel" id="pf-phone" name="entry.1228842331">
+      </div>
+      <button type="submit" class="btn btn-solid">Submit prayer request</button>
+    </form>
+    <p id="prayer-status" class="lede" style="margin-top:1rem;display:none"></p>
+    <p style="margin-top:2rem"><a class="btn btn-out" href="/">&larr; Back to home</a></p>
+  </div>
+</section>
+<script>
+(function(){
+  var form=document.getElementById('prayer-form');
+  var status=document.getElementById('prayer-status');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new URLSearchParams(new FormData(form));
+    fetch(form.action,{method:'POST',mode:'no-cors',body:data})
+      .then(function(){
+        form.reset();
+        form.style.display='none';
+        status.textContent='Thank you — your prayer request has been received. We are honored to stand with you.';
+        status.style.display='block';
+      })
+      .catch(function(){
+        status.textContent='Something went wrong sending that. Please email us directly at welcome@belongatstpaul.org.';
+        status.style.display='block';
+      });
+  });
+})();
+</script>

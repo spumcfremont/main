@@ -92,7 +92,7 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
       <span class="dot"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></span>
       <b>Inspiration</b>
     </a>
-    <a class="path-node n2" href="#care" data-target="care">
+    <a class="path-node n2" href="#ministries" data-target="ministries">
       <span class="dot"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9Z"/></svg></span>
       <b>Incarnation</b>
     </a>
@@ -416,13 +416,8 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
     </div>
     <div class="grid g3c">
       <article class="card">
-        <span class="kicker">Monday to Friday</span>
-        <h3>Hours &amp; ages</h3>
-        <ul>
-          <li><b>Full day</b> 7:00 a.m. – 6:00 p.m.</li>
-          <li><b>Modified</b> 8:00 a.m. – 5:30 p.m.</li>
-          <li><b>Ages</b> 2 to 6 years old</li>
-        </ul>
+        <span class="kicker">Who we serve</span>
+        <h3>Ages 2 to 6</h3>
       </article>
       <article class="card">
         <span class="kicker">30+ years, collectively</span>
@@ -432,12 +427,8 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
       <article class="card">
         <span class="kicker">Tours by appointment</span>
         <h3>Visit us</h3>
-        <ul>
-          <li><b>Director</b> Janja Colic</li>
-          <li><b>Office</b> Nina Bautista</li>
-          <li><b>Phone</b> (510) 429-3993</li>
-        </ul>
         <p class="contact"><a href="mailto:precioustimepreschool@gmail.com">precioustimepreschool@gmail.com</a></p>
+        <p style="margin-top:.8rem"><a href="https://preschool.belongatstpaul.org/" target="_blank" rel="noopener">Learn more at our preschool site →</a></p>
       </article>
     </div>
     <p style="margin-top:1.8rem;color:rgba(255,255,255,.72);max-width:70ch">Children are taught the basic concepts of Christian belief and conduct without a denominational slant, in a safe and secure environment where guidance and discipline are just, loving and consistent.</p>
@@ -523,9 +514,9 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
           <li><b>Worship</b><span>Sundays, 10:00 a.m.</span></li>
           <li><b>Church office</b><span><a href="tel:15104293990">(510) 429-3990</a> · <a href="mailto:welcome@belongatstpaul.org">welcome@belongatstpaul.org</a></span></li>
           <li><b>Preschool</b><span><a href="tel:15104293993">(510) 429-3993</a> · <a href="mailto:precioustimepreschool@gmail.com">precioustimepreschool@gmail.com</a></span></li>
-          <li><b>Prayer</b><span><a href="https://stpaulumcfremont.org/prayer-requests/" target="_blank" rel="noopener">Send a prayer request</a></span></li>
+          <li><b>Prayer</b><span><a href="/prayer-requests/">Send a prayer request</a></span></li>
           <li><b>Facebook</b><span><a href="https://www.facebook.com/stpaulfremont" target="_blank" rel="noopener">facebook.com/stpaulfremont</a></span></li>
-          <li><b>Building use</b><span><a href="https://stpaulumcfremont.files.wordpress.com/2019/10/3-18facility-usage-agreement.docx" target="_blank" rel="noopener">Facility usage agreement (DOCX)</a></span></li>
+          <li><b>Building use</b><span><a href="/documents/facility-usage-agreement.docx" target="_blank" rel="noopener">Facility usage agreement (DOCX)</a></span></li>
         </ul>
         <div class="btnrow" style="justify-content:flex-start;margin-top:1.6rem">
           <a class="btn btn-light" href="/give/">Give online</a>
@@ -547,25 +538,34 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
       <h2>Contact <em>us</em></h2>
       <p class="lede">Have a question, a prayer request, or just want to say hello? Send us a note and someone from the office will get back to you.</p>
     </div>
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" id="contact-form">
-      <input type="hidden" name="form-name" value="contact">
-      <p style="display:none">
-        <label>Don't fill this out if you're human: <input name="bot-field"></label>
-      </p>
+    <form class="contact-form" id="contact-form" method="POST"
+      action="https://docs.google.com/forms/d/e/1FAIpQLScL7uxdm7zq06aunRXfEKGSNTfLfmxH_9LP8RHxxD27K2-pIA/formResponse">
       <div class="field">
         <label for="cf-name">Name</label>
-        <input type="text" id="cf-name" name="name" required>
+        <input type="text" id="cf-name" name="entry.228399952" required>
       </div>
       <div class="field">
         <label for="cf-email">Email</label>
-        <input type="email" id="cf-email" name="email" required>
+        <input type="email" id="cf-email" name="entry.314216808" required>
+      </div>
+      <div class="field">
+        <label for="cf-phone">Phone number</label>
+        <input type="tel" id="cf-phone" name="entry.337520972">
+      </div>
+      <div class="field">
+        <label>Preferred contact</label>
+        <div class="check-row">
+          <label><input type="checkbox" name="entry.139149215" value="Email"> Email</label>
+          <label><input type="checkbox" name="entry.139149215" value="Call"> Call</label>
+          <label><input type="checkbox" name="entry.139149215" value="Text"> Text</label>
+        </div>
       </div>
       <div class="field">
         <label for="cf-message">Message</label>
-        <textarea id="cf-message" name="message" rows="5" required></textarea>
+        <textarea id="cf-message" name="entry.452057509" rows="5" required></textarea>
       </div>
       <button type="submit" class="btn btn-solid">Send message</button>
-      <p id="contact-status" class="lede" style="margin-top:1rem;display:none"></p>
     </form>
+    <p id="contact-status" class="lede" style="margin-top:1rem;display:none"></p>
   </div>
 </section>

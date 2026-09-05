@@ -11,6 +11,12 @@
     t.setAttribute('aria-expanded',open?'true':'false');
   });
   n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  document.addEventListener('click',function(e){
+    if(n.classList.contains('open') && !n.contains(e.target) && e.target!==t){
+      n.classList.remove('open');
+      t.setAttribute('aria-expanded','false');
+    }
+  });
 
   // scroll reveal
   var io=new IntersectionObserver(function(es){
@@ -52,16 +58,17 @@
     }).catch(noEvents);
   }
 
-  // Contact Us form — submit via fetch so Netlify Forms captures it without a page reload
+  // Contact Us form — submits to a Google Form (Sheet) via fetch, no-cors since
+  // Google's response isn't readable cross-origin; success is assumed once the
+  // request is sent without throwing (matches the fixed pattern used elsewhere).
   var contactForm=document.getElementById('contact-form');
   if(contactForm){
     contactForm.addEventListener('submit',function(e){
       e.preventDefault();
       var status=document.getElementById('contact-status');
-      var data=new URLSearchParams(new FormData(contactForm)).toString();
-      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
-        .then(function(res){
-          if(!res.ok){throw new Error('Submission failed');}
+      var data=new URLSearchParams(new FormData(contactForm));
+      fetch(contactForm.action,{method:'POST',mode:'no-cors',body:data})
+        .then(function(){
           contactForm.reset();
           contactForm.style.display='none';
           status.textContent='Thanks for reaching out — we\'ll be in touch soon.';

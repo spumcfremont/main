@@ -63,8 +63,14 @@ p{margin:0 0 1.05em}
 .topbar-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0;transition:padding .3s}
 .topbar.stuck .topbar-in{padding:9px 0}
 .brandmark{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
-.brandmark img{height:52px;width:auto;transition:height .3s}
-.topbar.stuck .brandmark img{height:40px}
+.brand-icon{
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  background:#fff;border-radius:12px;padding:6px;box-shadow:0 6px 16px -8px rgba(18,58,92,.35);
+  transition:padding .3s;
+}
+.brand-icon img{height:40px;width:auto;display:block;transition:height .3s}
+.topbar.stuck .brand-icon img{height:30px}
+.brand-text{font-family:var(--display);font-size:.92rem;font-weight:600;line-height:1.2}
 
 .mainnav{margin-left:auto;display:flex;align-items:center;gap:2px}
 .mainnav a{
@@ -97,7 +103,11 @@ p{margin:0 0 1.05em}
   filter:blur(6px);
 }
 .hero-in{position:relative;z-index:1}
-.hero-logo{width:min(280px,58%);margin:0 auto 1.4rem}
+.hero-logo-plate{
+  display:inline-block;background:#fff;border-radius:24px;padding:1.6rem 2rem;
+  box-shadow:0 20px 44px -22px rgba(18,58,92,.28);margin:0 auto 1.4rem;
+}
+.hero-logo{width:min(240px,52vw);display:block;margin:0}
 .hero h1{font-size:clamp(30px,4.6vw,52px);font-weight:700;max-width:20ch;margin:0 auto;color:var(--ink)}
 .hero h1 em{font-style:normal;color:var(--blue)}
 .hero .lede{margin:20px auto 0;max-width:52ch}
@@ -201,10 +211,10 @@ footer a{text-decoration:none}
     flex-direction:column;align-items:stretch;gap:0;padding:.6rem 1.25rem 1.1rem;border-bottom:1px solid var(--line);
   }
   .mainnav.open{display:flex}
-  .mainnav a{padding:.65rem 0;width:100%;border-bottom:1px solid var(--line-soft);border-radius:0}
+  .mainnav a{padding:.65rem 0;width:100%;text-align:center;border-bottom:1px solid var(--line-soft);border-radius:0}
   .navtoggle{display:block}
-  .topbar-in{position:relative;flex-wrap:wrap}
-  .apply-btn{order:-1;margin-left:auto}
+  .topbar-in{position:relative;flex-wrap:wrap;justify-content:center;gap:16px}
+  .apply-btn{order:-1}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

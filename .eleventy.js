@@ -10,6 +10,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/documents");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   eleventyConfig.addCollection("post", function (collectionApi) {
     return collectionApi.getFilteredByTag("post").reverse();
