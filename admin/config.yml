@@ -72,13 +72,10 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/season-detail.njk" }
       - { label: "Active", name: "active", widget: "boolean", default: false, hint: "Show this banner near the top of the homepage. Any number can be active at once (e.g. Christmas Cantata and Christmas Eve Service both showing in December) — they'll stack in Order below." }
       - { label: "Order", name: "order", widget: "number", default: 1, hint: "When more than one is active at once, lower numbers show first.", value_type: "int" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Badge label", name: "badge", widget: "string" }
-      - { label: "Photo", name: "image", widget: "image", required: false }
-      - { label: "Photo alt text", name: "image_alt", widget: "string", required: false, hint: "Describe the photo for screen readers." }
-      - { label: "Description", name: "body", widget: "markdown" }
-      - { label: "Button label", name: "cta_label", widget: "string", required: false }
-      - { label: "Button link", name: "cta_url", widget: "string", required: false }
+      - { label: "Title", name: "title", widget: "string", hint: "The big headline — shows on the homepage card and its own page." }
+      - { label: "Short summary", name: "summary", widget: "text", hint: "1–2 sentences shown on the homepage card, like a teaser." }
+      - { label: "Full details", name: "body", widget: "markdown", hint: "Paste a photo right at the top of this box if you have one — it'll show on the homepage card and the details page automatically. Then write everything else — dates, times, program info, links, whatever you like. This shows on the feature's own page when someone clicks \"More details.\" You can type or paste links directly into this text; there's no separate link field to fill in." }
       - { label: "Tags", name: "tags", widget: "hidden", default: ["seasonal-feature"] }

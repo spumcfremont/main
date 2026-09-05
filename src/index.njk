@@ -46,15 +46,15 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
       <h2>This Season at Saint Paul</h2>
     </div>
     {%- for feature in collections.seasonalFeature %}
-    <div class="feature"{% if not loop.last %} style="margin-bottom:2.6rem"{% endif %}>
-      <img src="{{ feature.data.image }}" alt="{{ feature.data.image_alt }}">
+    {%- set photo = feature.templateContent | firstImage %}
+    <div class="feature{% if not photo %} no-image{% endif %}"{% if not loop.last %} style="margin-bottom:2.6rem"{% endif %}>
+      {%- if photo %}
+      <img src="{{ photo.src }}" alt="{{ photo.alt }}">
+      {%- endif %}
       <div>
-        <span class="badge">{{ feature.data.badge }}</span>
         <h3 style="font-size:clamp(1.7rem,3.2vw,2.4rem);margin-bottom:.7rem">{{ feature.data.title }}</h3>
-        {{ feature.templateContent | safe }}
-        {%- if feature.data.cta_label and feature.data.cta_url %}
-        <p style="margin-top:1.2rem"><a class="btn btn-out" href="{{ feature.data.cta_url }}" target="_blank" rel="noopener">{{ feature.data.cta_label }}</a></p>
-        {%- endif %}
+        <p>{{ feature.data.summary }}</p>
+        <p style="margin-top:1.2rem"><a class="btn btn-out" href="{{ feature.url }}">More details<span class="sr-only"> about {{ feature.data.title }}</span></a></p>
       </div>
     </div>
     {%- endfor %}
@@ -87,20 +87,20 @@ description: "Saint Paul United Methodist Church, Fremont CA. Inspiration, Incar
 
 <!-- ========== SIGNATURE: THE PATH OF THREE WORDS ========== -->
 <div class="pathwrap">
-  <div class="wrap path">
+  <nav class="wrap path" aria-label="Jump to Inspiration, Incarnation, or Intersection">
     <a class="path-node n1" href="#worship" data-target="worship">
-      <span class="dot"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></span>
+      <span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></span>
       <b>Inspiration</b>
     </a>
     <a class="path-node n2" href="#ministries" data-target="ministries">
-      <span class="dot"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9Z"/></svg></span>
+      <span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9Z"/></svg></span>
       <b>Incarnation</b>
     </a>
     <a class="path-node n3" href="#outreach" data-target="outreach">
-      <span class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="6.5" r="2.3"/><circle cx="5.5" cy="8.5" r="2"/><circle cx="18.5" cy="8.5" r="2"/><path d="M8.6 19v-4.6a3.4 3.4 0 0 1 6.8 0V19M2.6 19v-3.4A2.9 2.9 0 0 1 5.5 13M21.4 19v-3.4a2.9 2.9 0 0 0-2.9-2.6"/></svg></span>
+      <span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="6.5" r="2.3"/><circle cx="5.5" cy="8.5" r="2"/><circle cx="18.5" cy="8.5" r="2"/><path d="M8.6 19v-4.6a3.4 3.4 0 0 1 6.8 0V19M2.6 19v-3.4A2.9 2.9 0 0 1 5.5 13M21.4 19v-3.4a2.9 2.9 0 0 0-2.9-2.6"/></svg></span>
       <b>Intersection</b>
     </a>
-  </div>
+  </nav>
 </div>
 
 <!-- ========== THREE WORDS ========== -->

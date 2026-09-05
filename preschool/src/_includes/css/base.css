@@ -62,7 +62,7 @@ p{margin:0 0 1.05em}
 .topbar.stuck{border-bottom-color:var(--line-soft);box-shadow:0 8px 28px -24px rgba(18,58,92,.5)}
 .topbar-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0;transition:padding .3s}
 .topbar.stuck .topbar-in{padding:9px 0}
-.brandmark{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
+.brandmark{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto;min-width:0}
 .brand-icon{
   display:flex;align-items:center;justify-content:center;flex:0 0 auto;
   background:#fff;border-radius:12px;padding:6px;box-shadow:0 6px 16px -8px rgba(18,58,92,.35);
@@ -213,8 +213,12 @@ footer a{text-decoration:none}
   .mainnav.open{display:flex}
   .mainnav a{padding:.65rem 0;width:100%;text-align:center;border-bottom:1px solid var(--line-soft);border-radius:0}
   .navtoggle{display:block}
-  .topbar-in{position:relative;flex-wrap:wrap;justify-content:center;gap:16px}
-  .apply-btn{order:-1}
+  .topbar-in{position:relative;flex-wrap:nowrap;justify-content:space-between;gap:8px;padding:9px 0}
+  .brandmark{flex:1 1 auto;min-width:0;gap:8px}
+  .brand-icon img{height:30px}
+  .brand-text{font-size:.68rem;line-height:1.2;white-space:normal;overflow-wrap:break-word;display:block}
+  .apply-btn{order:0;flex:0 0 auto;padding:8px 14px;font-size:13px}
+  .navtoggle{flex:0 0 auto;padding:8px 12px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

@@ -61,6 +61,13 @@ module.exports = function (eleventyConfig) {
     return md.renderInline(str || "");
   });
 
+  eleventyConfig.addFilter("firstImage", function (html) {
+    const match = /<img[^>]*\ssrc="([^"]+)"[^>]*>/i.exec(html || "");
+    if (!match) return null;
+    const altMatch = /\salt="([^"]*)"/i.exec(match[0]);
+    return { src: match[1], alt: altMatch ? altMatch[1] : "" };
+  });
+
   return {
     dir: {
       input: "src",
