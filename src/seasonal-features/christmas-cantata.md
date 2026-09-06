@@ -1,9 +1,10 @@
 ---
 layout: layouts/season-detail.njk
 active: true
-order: 1
-title: "Mary, Did You Know?"
-summary: Join our choir for the Christmas Cantata "Mary, Did You Know?" during the 10:00 a.m. worship service on December 20.
+order: 2
+title: Mary, Did You Know?
+summary: Join our choir for the Christmas Cantata "Mary, Did You Know?" during
+  the 10:00 a.m. worship service on December 20.
 tags:
   - seasonal-feature
 ---
