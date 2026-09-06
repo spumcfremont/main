@@ -1,6 +1,6 @@
 ---
 title: Dinner at Abode Shelter
-kicker: Every Friday, 4 p.m.
+kicker: Every 2nd Friday, 4 p.m.
 accent: g
 order: 1
 tags: ["outreach"]
