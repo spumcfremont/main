@@ -2,6 +2,21 @@
   command = "npx @11ty/eleventy"
   publish = "_site"
 
+# Old domain -> new domain, full redirect (both show as this site's domain
+# aliases in Netlify, so without this they'd just serve the same content
+# under the old address instead of sending visitors to the new one).
+[[redirects]]
+  from = "https://stpaulumcfremont.org/*"
+  to = "https://belongatstpaul.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.stpaulumcfremont.org/*"
+  to = "https://belongatstpaul.org/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
