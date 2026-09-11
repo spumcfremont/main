@@ -1,6 +1,6 @@
 ---
 layout: layouts/season-detail.njk
-active: true
+active: false
 order: 1
 title: Community Gardening Day
 summary: Grab your favorite trowel, bring some gloves, and help make our church
