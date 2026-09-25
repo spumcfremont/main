@@ -2,6 +2,34 @@
   command = "npx @11ty/eleventy"
   publish = "_site"
 
+# Old preschool page (still the address on Google Business/Yelp) -> the
+# preschool's own site. Must come before the general old-domain redirects
+# below, since Netlify uses the first matching rule and /preschool would
+# otherwise fall through to the church site, which has no /preschool page.
+[[redirects]]
+  from = "https://stpaulumcfremont.org/preschool"
+  to = "https://preschool.belongatstpaul.org/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://stpaulumcfremont.org/preschool/*"
+  to = "https://preschool.belongatstpaul.org/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.stpaulumcfremont.org/preschool"
+  to = "https://preschool.belongatstpaul.org/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.stpaulumcfremont.org/preschool/*"
+  to = "https://preschool.belongatstpaul.org/"
+  status = 301
+  force = true
+
 # Old domain -> new domain, full redirect (both show as this site's domain
 # aliases in Netlify, so without this they'd just serve the same content
 # under the old address instead of sending visitors to the new one).
