@@ -224,3 +224,5 @@ footer a{text-decoration:none}
   html{scroll-behavior:auto}
   *{transition-duration:.01ms !important;animation-duration:.01ms !important}
 }
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.cf-turnstile{margin:0 0 1.1rem;min-height:65px}

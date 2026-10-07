@@ -12,8 +12,9 @@ permalink: /prayer-requests/
       <p class="lede">"Bear one another's burdens, and so fulfill the law of Christ." — Galatians 6:2</p>
       <p class="lede">No matter what you are going through, our church community wants to stand with you in prayer. Please use this form to share your needs, praises, or unspoken requests. Every request is handled with deep care and respect for your privacy.</p>
     </div>
-    <form id="prayer-form" method="POST"
-      action="https://docs.google.com/forms/d/e/1FAIpQLSeRYDCKSNwDlsorW5Ki2SongcuPGNXFXWp01JBRY3LczUEh-A/formResponse">
+    <form id="prayer-form" method="POST" data-secure-form="prayer" data-status="prayer-status"
+      data-success="Thank you — your prayer request has been received. We are honored to stand with you."
+      data-error="Something went wrong sending that. Please email us directly at welcome@belongatstpaul.org.">
       <div class="field">
         <label for="pf-name">Name</label>
         <input type="text" id="pf-name" name="entry.1551647952" required>
@@ -56,30 +57,11 @@ permalink: /prayer-requests/
         <label for="pf-phone">Phone Number</label>
         <input type="tel" id="pf-phone" name="entry.1228842331">
       </div>
+      <div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}"></div>
       <button type="submit" class="btn btn-solid">Submit prayer request</button>
     </form>
-    <p id="prayer-status" class="lede" style="margin-top:1rem;display:none"></p>
+    <p id="prayer-status" class="lede" style="margin-top:1rem;display:none" aria-live="polite"></p>
     <p style="margin-top:2rem"><a class="btn btn-out" href="/">&larr; Back to home</a></p>
   </div>
 </section>
-<script>
-(function(){
-  var form=document.getElementById('prayer-form');
-  var status=document.getElementById('prayer-status');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var data=new URLSearchParams(new FormData(form));
-    fetch(form.action,{method:'POST',mode:'no-cors',body:data})
-      .then(function(){
-        form.reset();
-        form.style.display='none';
-        status.textContent='Thank you — your prayer request has been received. We are honored to stand with you.';
-        status.style.display='block';
-      })
-      .catch(function(){
-        status.textContent='Something went wrong sending that. Please email us directly at welcome@belongatstpaul.org.';
-        status.style.display='block';
-      });
-  });
-})();
-</script>

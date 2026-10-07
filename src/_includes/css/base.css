@@ -485,3 +485,5 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brick);outline-offs
 .who{margin-top:.9rem;font-family:var(--util);font-size:.82rem;letter-spacing:.03em;color:var(--plum)}
 .who a{color:inherit}
 .sig{font-family:var(--display);font-style:italic;color:var(--brick);margin-top:1rem}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.cf-turnstile{margin:0 0 1.1rem;min-height:65px}

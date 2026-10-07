@@ -61,27 +61,4 @@
       }).join('');
     }).catch(noEvents);
   }
-
-  // Contact Us form — submits to a Google Form (Sheet) via fetch, no-cors since
-  // Google's response isn't readable cross-origin; success is assumed once the
-  // request is sent without throwing (matches the fixed pattern used elsewhere).
-  var contactForm=document.getElementById('contact-form');
-  if(contactForm){
-    contactForm.addEventListener('submit',function(e){
-      e.preventDefault();
-      var status=document.getElementById('contact-status');
-      var data=new URLSearchParams(new FormData(contactForm));
-      fetch(contactForm.action,{method:'POST',mode:'no-cors',body:data})
-        .then(function(){
-          contactForm.reset();
-          contactForm.style.display='none';
-          status.textContent='Thanks for reaching out — we\'ll be in touch soon.';
-          status.style.display='block';
-        })
-        .catch(function(){
-          status.textContent='Something went wrong sending that. Please email us directly at welcome@belongatstpaul.org.';
-          status.style.display='block';
-        });
-    });
-  }
 })();

@@ -105,6 +105,9 @@
 {% include "js/main.js" %}
 </script>
 <script>
+{% include "js/secure-forms.js" %}
+</script>
+<script>
 if (window.netlifyIdentity) {
   window.netlifyIdentity.on("init", function (user) {
     if (!user) {
