@@ -1,9 +1,10 @@
 ---
 layout: layouts/season-detail.njk
-active: false
+active: true
 order: 2
 title: Rainforest Falls — Exploring the Nature of God
-summary: Vacation Bible School 2026 — five mornings of music, crafts, and Bible adventure for kids, July 20–24.
+summary: Vacation Bible School 2026 — five mornings of music, crafts, and Bible
+  adventure for kids, July 20–24.
 tags:
   - seasonal-feature
 ---
