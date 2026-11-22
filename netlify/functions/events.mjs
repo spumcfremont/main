@@ -20,6 +20,18 @@ function formatDetails(event) {
   return parts.join(" · ");
 }
 
+function formatTime(event) {
+  if (!event.start?.dateTime) {
+    return "";
+  }
+  return new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: event.start.timeZone || FALLBACK_TIMEZONE,
+  }).format(new Date(event.start.dateTime));
+}
+
 function toDateString(event) {
   if (event.start?.date) {
     return event.start.date;
@@ -80,6 +92,8 @@ export default async (req, context) => {
         date: toDateString(event),
         title: event.summary || "",
         details: formatDetails(event),
+        time: formatTime(event),
+        location: event.location || "",
       }))
       .filter((event) => event.date && event.title);
 

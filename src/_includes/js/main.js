@@ -61,4 +61,50 @@
       }).join('');
     }).catch(noEvents);
   }
+
+  // "A week at Saint Paul": the next 7 days from the same calendar, grouped by day.
+  // The hardcoded schedule in the markup stays as the fallback if the request fails.
+  var weekEl=document.getElementById('week-ledger');
+  if(weekEl){
+    var TZ='America/Los_Angeles';
+    var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var todayKey=new Date().toLocaleDateString('en-CA',{timeZone:TZ}); // YYYY-MM-DD
+    var dayKeys=[];
+    for(var i=0;i<7;i++){
+      var p=todayKey.split('-');
+      var base=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+i,12));
+      dayKeys.push(base.toISOString().slice(0,10));
+    }
+    // one extra day so events late on the seventh day are included; grouping below trims to the seven days
+    var weekEnd=new Date(Date.now()+8*24*60*60*1000);
+    var wqs='timeMin='+encodeURIComponent(new Date().toISOString())+
+      '&timeMax='+encodeURIComponent(weekEnd.toISOString())+'&maxResults=100';
+    fetch('/api/events?'+wqs).then(function(res){
+      if(!res.ok) throw new Error('bad status');
+      return res.json();
+    }).then(function(events){
+      if(!Array.isArray(events)) throw new Error('bad payload');
+      var html='';
+      dayKeys.forEach(function(key,idx){
+        var list=events.filter(function(e){return e.date===key;});
+        if(!list.length) return;
+        var d=new Date(key+'T12:00:00Z');
+        var label=idx===0?'Today':DAYS[d.getUTCDay()];
+        html+='<div class="day"><h3>'+label+'</h3><div class="slots">'+
+          list.map(function(e){
+            var when=e.time||'All day';
+            var where=e.location?' <span class="where">· '+esc(e.location)+'</span>':'';
+            return '<div class="slot"><div class="t">'+esc(when)+'</div><div class="d">'+esc(e.title)+where+'</div></div>';
+          }).join('')+
+          '</div></div>';
+      });
+      if(!html){
+        weekEl.innerHTML='<p class="lede">Nothing on the calendar for the next seven days. Check the <a href="/calendar/">full calendar</a> for what is coming up.</p>';
+      } else {
+        weekEl.innerHTML=html;
+      }
+    }).catch(function(){
+      /* keep the static schedule shown in the markup */
+    });
+  }
 })();
